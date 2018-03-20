@@ -29,7 +29,7 @@ typedef strect{
 	volatile uint32_t INTENSET;
 	volatile uint32_t INTENCLR;
 	volatile uint32_t RESERVED6[93];
-	volatile uint32_t ERRORSRC[4];
+	volatile uint32_t ERRORSRC;
 	volatile uint32_t RESERVED7[31];
 	volatile uint32_t ENABLE;
 	volatile uint32_t RESERVED8;
@@ -40,9 +40,9 @@ typedef strect{
 	volatile uint32_t RXD;
 	volatile uint32_t TXD;
 	volatile uint32_t RESERVED9;
-	volatile uint32_t BAUDRATE[17];
+	volatile uint32_t BAUDRATE;
 	volatile uint32_t RESERVED10[17];
-	volatile uint32_t CONFIG[2];
+	volatile uint32_t CONFIG;
 
 } NRF_UART_REG;
 
