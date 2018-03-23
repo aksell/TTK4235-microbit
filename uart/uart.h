@@ -1,8 +1,11 @@
+#ifndef UART_H
+#define UART_H
 #include <stdint.h>
+
 
 #define UART ((NRF_UART_REG*)0x40002000)
 
-typedef strect{
+typedef struct {
 	//Tasks
 	volatile uint32_t STARTRX;
 	volatile uint32_t STOPRX;
@@ -16,7 +19,7 @@ typedef strect{
 	volatile uint32_t CTS;
 	volatile uint32_t NCTS;
 	volatile uint32_t RXDRDY;
-	volatile uint32_t RESERVED2[4]
+	volatile uint32_t RESERVED2[4];
 	volatile uint32_t TXDRDY;
 	volatile uint32_t RESERVED3;
 	volatile uint32_t ERROR;
@@ -49,3 +52,5 @@ typedef strect{
 void uart_init();
 void uart_send(char letter);
 char uart_read();
+
+#endif
