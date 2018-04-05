@@ -24,7 +24,16 @@ GPIOTE->CONFIG[1] = 0x00030D03;
 GPIOTE->CONFIG[2] = 0x00030E03;
 GPIOTE->CONFIG[3] = 0x00030F03;
 
-// Husk˚a aktivere hver PPI-kanal. N˚ar de er konﬁgurert riktig, aktiveres de ved ˚a skrive til CHENSET i PPI-instansen.
+// aktivere CHEN register
+  PPI->CHENSET = 0x00000007;
+
+  //forklare?
+  PPI->PPI_CH[0].EEP = (uint32_t)&(GPIOTE->IN[3]);
+  PPI->PPI_CH[0].TEP = (uint32_t)&(GPIOTE->OUT[0]);
+  PPI->PPI_CH[1].EEP = (uint32_t)&(GPIOTE->IN[3]);
+  PPI->PPI_CH[1].TEP = (uint32_t)&(GPIOTE->OUT[1]);
+  PPI->PPI_CH[2].EEP = (uint32_t)&(GPIOTE->IN[3]);
+  PPI->PPI_CH[2].TEP = (uint32_t)&(GPIOTE->OUT[2]);
 
   while(1){
 	}
