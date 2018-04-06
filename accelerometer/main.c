@@ -8,7 +8,8 @@
 int main(){
 	//accel_init(); //accel init requires that you implement twi_multi_read first, not needed
 	//to read who_am_i
-
+	uart_init();
+	
 	uint8_t WHO_AM_I_ACCEL_VALUE = 0x5A; //acelerometer device address
 	uint8_t WHO_AM_I_ACCEL_ADR = 0x0D; //address where WHO_AM_I is stored
 
@@ -22,12 +23,12 @@ int main(){
 
 	utility_print(&uart_send, "Num: %d\n\r", data_buffer[0]);//write address over uart. takes only whole number does no error checking
 	//utility print can be used with many different mediums uart or a physical printre
-	//use putc to read uart
-	
+	//use picocom to read uart
+
 	free(data_buffer);
 
 
 	return 0;
 }
 
-// /r is carriage return, 
+// /r is carriage return
