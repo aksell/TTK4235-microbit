@@ -1,6 +1,9 @@
 #include <stdint.h>
 #include "accel.h"
 #include "twi.h"
+#include "twi.h"
+#include "utility.h"
+#include "uart.h"
 //addresses found in 6.1 register address map
 #define ACCEL_ADDR             0x1D //found in section 5.8
 #define ACCEL_DATA_REG         0x01 // start of x y z data
@@ -15,6 +18,7 @@ void accel_init(){
 void accel_read_x_y_z(int * data_buffer){
     uint8_t raw_data[6] = {0, 0, 0, 0, 0, 0};
     twi_multi_read(ACCEL_ADDR, ACCEL_DATA_REG, 6, raw_data);
+
 
     int16_t x_accel, y_accel, z_accel;
 
